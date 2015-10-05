@@ -3,6 +3,12 @@ package jp.gr.conf_java.taksak.testInstanceClass;
 public class Hero {
 	String name;
 	int hp;
+	Sword sword;
+
+	void atack() {
+		System.out.println(this.name + "は攻撃した！");
+		System.out.println("敵に5ポイントのダメージをあたえた！");
+	}
 
 	void sleep() {
 		this.hp = 100;
