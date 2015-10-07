@@ -1,14 +1,14 @@
 package jp.gr.conf_java.taksak.testInstanceClass;
 
 public class Hero {
-	String name;
-	int hp;
-	Sword sword;
+	private String name;
+	private int hp;
+	private Sword sword;
 	static int money;
 
 	Hero(String name) {
-		this.hp = 100;
-		this.name = name;
+		this.setHp(100);
+		this.setName(name);
 	}
 
 	Hero() {
@@ -23,45 +23,69 @@ public class Hero {
 		System.out.println("勇者は別れを告げた");
 	}
 
-	void die() {
-		System.out.println(this.name + "は死んでしまった！");
+	private void die() {
+		System.out.println(this.getName() + "は死んでしまった！");
 		System.out.println("GAME OVERです。");
 	}
 
-	void atack() {
-		System.out.println(this.name + "は攻撃した！");
+	public void atack() {
+		System.out.println(this.getName() + "は攻撃した！");
 		System.out.println("敵に5ポイントのダメージをあたえた！");
 	}
 
-	void atack(Matango m) {
-		System.out.println(this.name + "の攻撃！");
-		this.hp -= 2;
+	public void atack(Matango m) {
+		System.out.println(this.getName() + "の攻撃！");
+		this.setHp(this.getHp() - 2);
 		System.out.println("お化けキノコ" + m.suffix + "から2ポイントの反撃を受けた");
-		if (this.hp <= 0) {
+		if (this.getHp() <= 0) {
 			this.die();
 		}
 	}
 
 	void sleep() {
-		this.hp = 100;
-		System.out.println(this.name + "は、眠って回復した！");
+		this.setHp(100);
+		System.out.println(this.getName() + "は、眠って回復した！");
 	}
 
 	void sit(int sec) {
-		this.hp += sec;
-		System.out.println(this.name + "は、" + sec + "秒座った！");
+		this.setHp(this.getHp() + sec);
+		System.out.println(this.getName() + "は、" + sec + "秒座った！");
 		System.out.println("HPが" + sec + "ポイント回復した。");
 	}
 
 	void slip() {
-		this.hp -= 5;
-		System.out.println(this.name + "は、転んだ！");
+		this.setHp(this.getHp() - 5);
+		System.out.println(this.getName() + "は、転んだ！");
 		System.out.println("5のダメージ！");
 	}
 
 	void run() {
-		System.out.println(this.name + "は、逃げ出した！");
+		System.out.println(this.getName() + "は、逃げ出した！");
 		System.out.println("GAMEOVER");
-		System.out.println("最終HPは" + this.hp + "でした");
+		System.out.println("最終HPは" + this.getHp() + "でした");
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Sword getSword() {
+		return sword;
+	}
+
+	public void setSword(Sword sword) {
+		this.sword = sword;
 	}
 }

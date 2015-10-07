@@ -14,19 +14,21 @@ public class Main {
 		System.out.println(Hero.money);
 
 		Hero h1 = new Hero("ミナト");
-		h1.sword = s1;
-		System.out.println("現在の武器は" + h1.sword.name);
+		h1.setSword(s1);
+		System.out.println("現在の武器は" + h1.getSword().name);
 
 		Hero h2 = new Hero();
-		h2.sword = s2;
+		h2.setSword(s2);
 
 		System.out.println(h1.money);
 		h1.money += 100;
 		System.out.println(h1.money);
 
-		Wizard w = new Wizard();
-		w.name = "スガワラ";
-		w.hp = 10;
+		King k = new King();
+		k.talk(h1);
+		k.talk(h2);
+
+		Wizard w = new Wizard("スガワラ", 10, 30, "魔法の杖");
 
 		w.heal(h1);
 		w.heal(h2);
