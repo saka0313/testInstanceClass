@@ -19,9 +19,27 @@ public class Hero {
 		Hero.money = (int) (Math.random() * 1000);
 	}
 
+	void bye() {
+		System.out.println("勇者は別れを告げた");
+	}
+
+	void die() {
+		System.out.println(this.name + "は死んでしまった！");
+		System.out.println("GAME OVERです。");
+	}
+
 	void atack() {
 		System.out.println(this.name + "は攻撃した！");
 		System.out.println("敵に5ポイントのダメージをあたえた！");
+	}
+
+	void atack(Matango m) {
+		System.out.println(this.name + "の攻撃！");
+		this.hp -= 2;
+		System.out.println("お化けキノコ" + m.suffix + "から2ポイントの反撃を受けた");
+		if (this.hp <= 0) {
+			this.die();
+		}
 	}
 
 	void sleep() {
