@@ -9,6 +9,7 @@ public class Hero {
 	Hero(String name) {
 		this.setHp(100);
 		this.setName(name);
+		System.out.println("Heroのコンストラクタが動作");
 	}
 
 	Hero() {
@@ -36,7 +37,7 @@ public class Hero {
 	public void atack(Matango m) {
 		System.out.println(this.getName() + "の攻撃！");
 		this.setHp(this.getHp() - 2);
-		System.out.println("お化けキノコ" + m.suffix + "から2ポイントの反撃を受けた");
+		System.out.println("お化けキノコ" + m.getSuffix() + "から2ポイントの反撃を受けた");
 		if (this.getHp() <= 0) {
 			this.die();
 		}

@@ -2,6 +2,9 @@ package jp.gr.conf_java.taksak.testInstanceClass;
 
 public class Main {
 	public static void main(String[] args) {
+		SuperHero sh = new SuperHero();
+		sh.fly();
+
 		Sword s1 = new Sword();
 		s1.name = "こんぼう";
 		s1.damage = 10;
@@ -34,17 +37,25 @@ public class Main {
 		w.heal(h2);
 		w.heal(h2);
 
-		Matango m1 = new Matango();
-		m1.hp = 50;
-		m1.suffix = 'A';
+		Matango m1 = new Matango(50, 'A');
 
-		Matango m2 = new Matango();
-		m2.hp = 48;
-		m2.suffix = 'B';
+		Matango m2 = new Matango(48, 'B');
+
+		PoisonMatango pm = new PoisonMatango('A');
+		pm.attack(h1);
+		pm.attack(h2);
+		pm.attack(sh);
+		pm.attack(h1);
+		pm.attack(h2);
+		pm.attack(sh);
 
 		h1.slip();
+		sh.atack(m1);
 		m1.run();
+		sh.land();
+		sh.atack(m2);
 		m2.run();
 		h1.run();
+		sh.run();
 	}
 }
