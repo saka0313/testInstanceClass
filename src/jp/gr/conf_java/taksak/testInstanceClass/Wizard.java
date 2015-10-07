@@ -6,6 +6,6 @@ public class Wizard {
 
 	void heal(Hero h) {
 		h.hp += 10;
-		System.out.println("");
+		System.out.println(h.name + "のHPを10回復した！");
 	}
 }
